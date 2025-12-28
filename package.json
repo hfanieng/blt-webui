@@ -1,0 +1,15 @@
+{
+  "name": "blt-webui",
+  "version": "1.0.0",
+  "description": "BLT WebUI - Fastify + Vite + Vue application",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm start",
+    "build:frontend": "cd frontend && npm run build",
+    "preview:frontend": "cd frontend && npm run preview"
+  },
+  "keywords": ["fastify", "vite", "vue"],
+  "author": "",
+  "license": "ISC"
+}
