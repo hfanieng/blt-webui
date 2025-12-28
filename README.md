@@ -17,7 +17,7 @@ If you want to create a **NEW** GitHub repository, follow these steps:
    # Navigate to your local project directory
    cd /path/to/your/project
    
-   # Set the new remote URL
+   # Set the new remote URL (e.g., https://github.com/username/repository-name.git)
    git remote set-url origin <new-repo-url>
    
    # Push to the new repository
@@ -48,7 +48,7 @@ When setting up a new repository, you have two options:
 
 ```bash
 # Clone the repository
-git clone https://github.com/hfanieng/blt-webui.git
+git clone https://github.com/username/blt-webui.git
 cd blt-webui
 
 # Install dependencies
