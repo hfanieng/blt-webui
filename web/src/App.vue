@@ -1,10 +1,8 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 
-const devices = reactive({
-  1: null,
-  2: null,
-})
+const devices = reactive({})
+const preferredDevices = [1, 2]
 
 const connection = ref('disconnected')
 let eventSource = null
@@ -22,17 +20,25 @@ async function fetchLatest(deviceNumber) {
 function applyPayload(payload) {
   const deviceNumber = Number(payload?.device_number)
   if (!Number.isInteger(deviceNumber)) return
-  if (!(deviceNumber in devices)) return
   devices[deviceNumber] = payload
 }
 
-const deviceCards = computed(() => [
-  { number: 1, data: devices[1] },
-  { number: 2, data: devices[2] },
-])
+const deviceCards = computed(() => {
+  const numbers = Object.keys(devices)
+    .map((k) => Number(k))
+    .filter((n) => Number.isInteger(n))
+    .sort((a, b) => a - b)
+
+  // If nothing is known yet, show preferred slots (empty state)
+  if (numbers.length === 0) {
+    return preferredDevices.map((n) => ({ number: n, data: devices[n] ?? null }))
+  }
+
+  return numbers.map((n) => ({ number: n, data: devices[n] }))
+})
 
 onMounted(async () => {
-  await Promise.all([fetchLatest(1), fetchLatest(2)])
+  await Promise.all(preferredDevices.map((n) => fetchLatest(n)))
 
   connection.value = 'connecting'
   eventSource = new EventSource('/api/stream')
