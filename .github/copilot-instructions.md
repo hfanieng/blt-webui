@@ -7,6 +7,7 @@ Architecture (monorepo):
 - `server/`: Fastify API that receives BLT payloads via HTTP POST and broadcasts live updates via **SSE**.
 - `web/`: Vite + Vue SPA that consumes the API and renders the latest state per device.
 - `data/`: runtime storage (append-only JSON array).
+- `blt/`: BLT Clojure expressions to send payloads to the API.
 
 Primary UX goal: show **latest payload per device** and optionally raw JSON.
 Do not introduce extra pages/features unless explicitly requested.
@@ -83,6 +84,7 @@ From repo root:
 - Do not add authentication or complex state management unless asked.
 - Do not introduce additional endpoints or UI screens without a clear requirement.
 - Do not store secrets in the repo; use `.env` files (gitignored).
+- Do not commit private local paths or device-specific BLT settings; keep `blt/` as reusable examples.
 
 ## When unsure
 If a requirement is ambiguous, choose the simplest implementation that:

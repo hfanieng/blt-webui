@@ -7,6 +7,7 @@ This repo is a small monorepo:
 - `server/`: Fastify API that receives BLT payloads via HTTP POST, persists them, and broadcasts live updates via **SSE**.
 - `web/`: Vite + Vue SPA that listens to the SSE stream and shows the latest payload per device.
 - `data/`: runtime storage (append-only JSON array).
+- `blt/`: sample Beat Link Trigger (Clojure) expressions to POST JSON to the API.
 
 ---
 
