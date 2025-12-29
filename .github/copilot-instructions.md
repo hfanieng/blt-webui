@@ -39,6 +39,21 @@ Important:
 - `data/phrase.json` must be **gitignored** (runtime file).
 - Keep `data/.gitkeep` so the folder exists in git.
 
+## Storage strategy (JSON vs DB)
+Default to **JSON-first** for this project (KISS): an append-only `data/phrase.json` is sufficient to:
+- debug BLT payloads,
+- replay recent events manually,
+- support the primary UX (“latest per device” + optional raw JSON).
+
+Only introduce a database when there is a clear requirement such as:
+- efficient queries (e.g., history by device/track/time range),
+- retention policies / pruning, or file growth becomes a problem,
+- deduplication, indexing, or analytics beyond simple viewing,
+- multi-user / concurrent writers (not expected for local use).
+
+If a DB is required, prefer **SQLite** (single local file) before anything heavier.
+Keep the incoming BLT keys unchanged in storage; store the full payload JSON and add minimal metadata only (e.g., received timestamp).
+
 ## Coding conventions
 ### General
 - Prefer small, targeted changes. Avoid refactors not required by the task.
@@ -65,7 +80,7 @@ From repo root:
 - Start SPA: `cd web && npm run dev`
 
 ## What NOT to do
-- Do not add authentication, databases, or complex state management unless asked.
+- Do not add authentication or complex state management unless asked.
 - Do not introduce additional endpoints or UI screens without a clear requirement.
 - Do not store secrets in the repo; use `.env` files (gitignored).
 
