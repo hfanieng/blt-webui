@@ -5,39 +5,46 @@ This folder contains the project documentation in English.
 ## Project phases
 
 ### 1) Initiation / Context
+
 - Problem statement / goal
-	- Build a solution that works with PioneerDJ equipment in standalone mode as well as with Rekordbox software.
-	- Use Rekordbox phrase analysis as the foundation for cross-system DMX lighting capabilities.
-	- Focus: a reliable bridge between music events (track/beat/phrase) and lighting workflows (DMX) based on Rekordbox analysis.
+  - Build a solution that works with PioneerDJ equipment in standalone mode as well as with Rekordbox software.
+  - Use Rekordbox phrase analysis as the foundation for cross-system DMX lighting capabilities.
+  - Focus: a reliable bridge between music events (track/beat/phrase) and lighting workflows (DMX) based on Rekordbox analysis.
 - Constraints (local tool, KISS, no auth, BLT payload keys unchanged)
 - Stakeholders / target users
 
 ### 2) Requirements
+
 - Functional requirements (ingest BLT JSON, latest per device, Raw JSON)
 - Non-functional requirements (local, low-latency, simple ops)
 - Out of scope
 
 ### 3) Architecture & Design
+
 - Monorepo overview (`server/`, `web/`, `data/`, `blt/`)
 - API surface (`/api/receive_data`, `/api/stream`, ...)
 - Data flow (BLT -> Fastify -> SSE -> Vue)
 - Persistence strategy (JSON-first; DB only when justified)
 
 ### 4) Implementation
+
 - Server implementation notes
 - Web implementation notes
 - Key conventions (do not rename BLT keys)
 
 ### 5) Testing & Validation
+
 - Manual test plan (curl, UI live updates)
 - Edge cases (invalid JSON, missing device_number)
 
 ### 6) Deployment / Operation
+
 - How to run locally
 - Port configuration
 - Troubleshooting
 
 ### 7) Decisions & Trade-offs
+
 - Decision log summary (why SSE, why JSON-first)
 - Known limitations
 
@@ -51,4 +58,5 @@ Format: Date · Decision · Rationale · Alternatives · Consequences
 - 2025-12-28 · Monorepo split (`server/` + `web/`) with Vite proxy · Clear separation of concerns and simple dev setup · Single combined server, separate repos · Slightly more folders; much clearer ownership
 
 ### 8) Roadmap
+
 - Next steps (only if explicitly planned)

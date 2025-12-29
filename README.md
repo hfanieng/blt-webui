@@ -10,11 +10,13 @@ This repo is a small monorepo:
 - `blt/`: sample Beat Link Trigger (Clojure) expressions to POST JSON to the API.
 
 Documentation:
+
 - English project phases + decision log: `docs/en/README.md`
 - Deutsche Projektphasen + Entscheidungslog: `docs/de/README.md`
 
 Related project:
-- Beat Link Trigger (BLT): https://github.com/Deep-Symmetry/beat-link-trigger
+
+- Beat Link Trigger (BLT): <https://github.com/Deep-Symmetry/beat-link-trigger>
 
 ---
 
