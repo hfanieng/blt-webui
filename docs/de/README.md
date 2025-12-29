@@ -5,16 +5,22 @@ Dieser Ordner enthält die Projektdokumentation in deutscher Sprache.
 ## Projektphasen
 
 ### 1) Initiierung / Kontext
-- Problemstellung
+
+- Problemstellung / Ziel
+	- Entwicklung einer Lösung, die sowohl mit PioneerDJ-Equipment im Standalone-Betrieb als auch mit der Software Rekordbox funktioniert.
+	- Nutzung der Phrasenanalyse aus Rekordbox als Grundlage, um systemübergreifende Möglichkeiten für DMX-Lighting zu schaffen.
+	- Fokus: eine zuverlässige „Bridge“ zwischen Musik (Track/Beat/Phrase-Events) und Licht (DMX-Workflows) auf Basis der Rekordbox-Analysen.
 - Rahmenbedingungen (lokales Tool, KISS, keine Auth, BLT-Keys unverändert)
 - Stakeholder / Zielgruppe
 
 ### 2) Anforderungen
+
 - Funktionale Anforderungen (BLT JSON empfangen, letzter Stand pro Device, Raw JSON)
 - Nicht-funktionale Anforderungen (lokal, geringe Latenz, einfache Bedienung)
 - Abgrenzung (Out of scope)
 
 ### 3) Architektur & Design
+
 - Monorepo-Überblick (`server/`, `web/`, `data/`, `blt/`)
 - API-Oberfläche (`/api/receive_data`, `/api/stream`, ...)
 - Datenfluss (BLT -> Fastify -> SSE -> Vue)

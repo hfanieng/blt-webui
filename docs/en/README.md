@@ -5,7 +5,10 @@ This folder contains the project documentation in English.
 ## Project phases
 
 ### 1) Initiation / Context
-- Problem statement
+- Problem statement / goal
+	- Build a solution that works with PioneerDJ equipment in standalone mode as well as with Rekordbox software.
+	- Use Rekordbox phrase analysis as the foundation for cross-system DMX lighting capabilities.
+	- Focus: a reliable bridge between music events (track/beat/phrase) and lighting workflows (DMX) based on Rekordbox analysis.
 - Constraints (local tool, KISS, no auth, BLT payload keys unchanged)
 - Stakeholders / target users
 
